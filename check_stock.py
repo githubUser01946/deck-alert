@@ -49,7 +49,7 @@ with sync_playwright() as p:
 print("Prices on page:", [w for w in text.split() if w[:1] in "£$€"][:6])
 print("1TB button states:", found)
 
-if True:
+if any(s.lower() == "add to cart" for s in found):
     notify("1TB Steam Deck OLED is IN STOCK. Go!")
 elif found:
     print("Out of stock")
